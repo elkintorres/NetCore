@@ -5,15 +5,29 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FrontMVC.Models;
+using FrontMVC.Filters;
 
 namespace FrontMVC.Controllers
 {
+    [AuthorizationFilter]
     public class HomeController : Controller
     {
         [HttpGet]
         public IActionResult Contact()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Wellcome()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult TestError()
+        {
+            throw new Exception();
         }
 
         [HttpPost]

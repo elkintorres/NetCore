@@ -22,7 +22,7 @@ namespace FrontMVC.Filters
 
             rol = context.HttpContext.Session.GetString("Rol");
 
-            if (string.IsNullOrEmpty(rol) && (!rol.Equals("UserRol") || !rol.Equals("AdminRol")))
+            if (string.IsNullOrEmpty(rol) || (!rol.Equals("UserRol") && !rol.Equals("AdminRol")))
             {
                 context.Result = new RedirectToRouteResult(
                     new RouteValueDictionary(new { controller = "Login", action = "Login" })

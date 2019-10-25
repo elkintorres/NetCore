@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FrontMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FrontMVC.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
 
@@ -34,7 +36,7 @@ namespace FrontMVC.Controllers
                 HttpContext.Session.SetString("Rol", "UserRol");
             }
 
-            return RedirectToAction("Contact", "Home");
+            return RedirectToAction("Wellcome", "Home");
         }
     }
 }
